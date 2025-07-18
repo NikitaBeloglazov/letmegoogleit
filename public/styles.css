@@ -173,6 +173,10 @@ body:not(.play-mode) .form__button:hover,
     display: none;
 }
 
+.it_was_so_difficult_text {
+    display: none;
+}
+
 .github-link {
     all: unset;
     cursor: pointer;

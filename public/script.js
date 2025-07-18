@@ -34,6 +34,7 @@ function App() {
         input: document.getElementById('input'),
         form: document.getElementById('form'),
         buttonSubmit: document.getElementById('submit'),
+        itWasSoDifficultText: document.getElementById('it-was-so-difficult-text'),
         mouse: document.getElementById('mouse'),
         linkResult: document.getElementById('link-result'),
         linkResultCopy: document.getElementById('link-result-copy'),
@@ -89,7 +90,7 @@ App.prototype = {
                     () => {
                         this.delay(() =>
                             this.playSubmit(() => {
-                                this.delay(() => {
+                                this.long_delay(() => {
                                     window.location.href = this.playModeLink;
                                 })
                             })
@@ -101,11 +102,10 @@ App.prototype = {
     },
     playFocusToInput(callback) {
         const position = this.dom.input.getBoundingClientRect();
-        const offset = {
-            left: 5,
-            top: 15
+        const offset = { // Calibrating the cursor position
+            left: 150,
+            top: 10
         };
-
         this.dom.mouse.style.transform = 'translate(' + (position.left  + offset.left)+ 'px, ' + (position.top + offset.top) + 'px)';
 
         setTimeout(() => {
@@ -141,9 +141,15 @@ App.prototype = {
         setTimeout(() => {
             callback();
         }, 2000);
+        setTimeout(() => {
+            this.dom.itWasSoDifficultText.classList.remove('hidden');; // show itWasSoDifficultText
+        }, 1000);
     },
     delay(callback, time) {
         setTimeout(() => callback(), time || 500);
+    },
+    long_delay(callback, time) { // longer delay after showing itWasSoDifficultText
+        setTimeout(() => callback(), time || 3500);
     }
 }
 
