@@ -69,7 +69,7 @@ App.prototype = {
         this.dom.linkResult.classList.remove('hidden');
 
         for (let link of this.dom.linkResult.querySelectorAll('a')) {
-            link.setAttribute('href', encodeURI("https://google-poisk-vmesto-tebya.ru/?q=" + this.dom.input.value));
+            link.setAttribute('href', encodeURI("https://nikitabeloglazov.github.io/letmegoogleit/?q=" + this.dom.input.value));
         }
     },
     play(str) {
